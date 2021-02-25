@@ -11,7 +11,7 @@
         <div class="card-header">
             <h3>{{ product.productName }}</h3>
         </div>
-        <div class="card-content" style="display: flex; flex-direction: row; justify-content: space-between;">
+        <div class="card-content" style="display: flex; flex-direction: row;">
             <ul class="list-group" style="width: 300px">
                 <li class="list-group-item">Code:  <span>{{ product.productCode | lowercase | convertToSpaces: '-'}}</span></li>
                 <li class="list-group-item">Date: <span>{{ product.releaseDate}}</span></li>
@@ -19,8 +19,10 @@
                 <li class="list-group-item">Price: <span>{{ product.price | currency:'USD':'symbol':'1.2-2' }}</span></li>
                 <li class="list-group-item">Start Rating: <span><pm-star [rating]='product.starRating'></pm-star></span></li>
               </ul>
-              <img [src]='product.imageUrl'
-                   [style.width.px]="250"/>
+              <div style="margin: 0 auto;">
+                <img [src]='product.imageUrl'
+                [style.width.px]="250"/>
+              </div>
         </div>
     </div>
 </div>
