@@ -1,10 +1,26 @@
 <div class="card">
     <div class="card-header">
-        {{ pageTitle + ": " + product.productName}}
+        {{ pageTitle + ": " + product?.productName}}
     </div>
     <div>
         <button (click)="onBack()" class="btn">
             Back
         </button>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h3>{{ product.productName }}</h3>
+        </div>
+        <div class="card-content" style="display: flex; flex-direction: row; justify-content: space-between;">
+            <ul class="list-group" style="width: 300px">
+                <li class="list-group-item">Code:  <span>{{ product.productCode | lowercase | convertToSpaces: '-'}}</span></li>
+                <li class="list-group-item">Date: <span>{{ product.releaseDate}}</span></li>
+                <li class="list-group-item">Description: <span>{{ product.description }}</span></li>
+                <li class="list-group-item">Price: <span>{{ product.price | currency:'USD':'symbol':'1.2-2' }}</span></li>
+                <li class="list-group-item">Start Rating: <span><pm-star [rating]='product.starRating'></pm-star></span></li>
+              </ul>
+              <img [src]='product.imageUrl'
+                   [style.width.px]="250"/>
+        </div>
     </div>
 </div>

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IProduct } from './product';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { ProductDataService } from '../services/product-data.service';
 
 @Component({
   selector: 'pm-product-detail',
@@ -9,23 +10,23 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProductDetailComponent implements OnInit {
   public pageTitle: string = 'Single Product View'
-  public product: IProduct = {
-    productName:'Baseball Bat',
-    productCode:'222',
-    productId: 123431,
-    price:23,
-    description:'tasdasdsaest',
-    imageUrl:'ulr',
-    releaseDate:'23 Jan',
-    starRating:4.3
-  }
+  public product: IProduct;
   constructor(private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router,
+              private productService: ProductDataService) { }
 
   ngOnInit(): void {
     let id: number = +this.route.snapshot.paramMap.get('id');
-    console.log(id);
     this.pageTitle == this.pageTitle + ":" + id;
+
+    // get the product with the specified ID
+    this.productService.getProducts()
+                       .subscribe((products) => {
+                          let index = products.findIndex((x) => x.productId == id);
+                          if (index != -1) {
+                            this.product = products[index]; 
+                          }
+                       });
   }
 
   onBack(): void {
