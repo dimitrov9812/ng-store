@@ -8,12 +8,14 @@ import { RoutingModule } from './routing/routing.module';
 // Components
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './home/welcome.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     // Components
     AppComponent,
     WelcomeComponent,
+    PageNotFoundComponent,
     // Pipes
     // Directives
   ],

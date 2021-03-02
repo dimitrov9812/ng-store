@@ -24,7 +24,7 @@ export class ProductDetailComponent implements OnInit {
                        .subscribe((products) => {
                           let index = products.findIndex((x) => x.productId == id);
                           if (index != -1) {
-                            this.product = products[index]; 
+                            this.product = products[index];
                           }
                        });
   }

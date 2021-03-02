@@ -5,6 +5,8 @@ import { ProductDetailComponent } from './product-detail.component';
 import { ConvertToSpacesPipe } from '../pipes/convert-to-spaces.pipe';
 import { SharedModule } from '../shared/shared.module';
 import { ProductRoutingModule } from './product-routing.module';
+import { EditProductComponent } from '../edit-product/edit-product.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -12,10 +14,12 @@ import { ProductRoutingModule } from './product-routing.module';
     // Components
     ProductListComponent,
     ProductDetailComponent,
+    EditProductComponent,
     // Pipes
     ConvertToSpacesPipe,
   ],
   imports: [
+    ReactiveFormsModule,
     CommonModule,
     SharedModule,
     ProductRoutingModule

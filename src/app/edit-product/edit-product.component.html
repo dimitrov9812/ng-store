@@ -1,0 +1,52 @@
+<div *ngIf="product" class="container">
+  <h3>Edit {{ product.productName }}</h3>
+  <form class="container"
+       [formGroup]="productForm"
+       style="justify-content: space-between;">
+    <div class="column form-group">
+      <label>
+        Name
+      </label>
+      <input type="text" formControlName="productName">
+    </div>
+    <div class="column">
+      <label>
+        Code
+      </label>
+      <input type="text" formControlName="productCode">
+    </div>
+    <div class="column">
+      <label>
+        Rating
+      </label>
+      <input type="text" formControlName="starRating">
+    </div>
+    <div class="column">
+      <label>
+        Tag
+      </label>
+      <div>
+        <input type="text" formControlName="tags">
+        <button class="btn" style="border-color: orange; margin-left: 30px">Delete Tag</button>
+      </div>
+    </div>
+    <div class="column">
+      <label>
+        Description
+      </label>
+      <textarea formControlName="description"></textarea>
+    </div>
+    <div class="container" style="margin:10px; width: 230px; justify-content: space-between; display: flex; flex-direction: row;">
+      <button class="btn btn-primary">
+        Save
+      </button>
+      <button class="btn btn-primary"
+             [routerLink]="['/products',product.productId]">
+        Back
+      </button>
+      <button class="btn btn-danger">
+        Delete
+      </button>
+    </div>
+  </form>
+</div>

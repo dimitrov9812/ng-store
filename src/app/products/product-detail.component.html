@@ -24,5 +24,15 @@
                 [style.width.px]="250"/>
               </div>
         </div>
+        <div>
+          <button class="btn btn-default"
+                  routerLink='/products'>
+            Back
+          </button>
+          <button class="btn btn-primary"
+                  [routerLink]="['/products','edit',product.productId]">
+              Edit
+          </button>
+        </div>
     </div>
 </div>
